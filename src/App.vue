@@ -5,9 +5,21 @@
         <router-link to="/" class="navbar-item">
           <strong>Invoicely</strong>
         </router-link>
+
+        <a
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbar-menu"
+          @click="showMobileMenu = !showMobileMenu"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-      <div class="navbar-menu">
+      <div class="navbar-menu" v-bind:class="{ 'is-active': showMobileMenu }">
         <div class="navbar-end">
           <template v-if="$store.state.isAuthenticated">
             <router-link to="/dashboard" class="navbar-item"
@@ -65,6 +77,11 @@ import axios from "axios";
 
 export default {
   name: "App",
+  data() {
+    return {
+      showMobileMenu: false,
+    };
+  },
   beforeCreate() {
     this.$store.commit("initializeStore");
 

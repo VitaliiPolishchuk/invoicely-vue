@@ -67,29 +67,30 @@
       <div class="column is-12 mb-4">
         <div class="box">
           <h3 class="is-size-4 mb-5">Items</h3>
-
-          <table class="table is-fullwidth">
-            <thead>
-              <tr>
-                <td>Title</td>
-                <td>Quantity</td>
-                <td>Vat rate</td>
-                <td>Total</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                class="item"
-                v-for="item in invoice.items"
-                v-bind:key="item.id"
-              >
-                <td>{{ item.title }}</td>
-                <td>{{ item.quantity }}</td>
-                <td>{{ item.vat_rate }}%</td>
-                <td>{{ getItemTotal(item) }}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="table-container">
+            <table class="table is-fullwidth">
+              <thead>
+                <tr>
+                  <td>Title</td>
+                  <td>Quantity</td>
+                  <td>Vat rate</td>
+                  <td>Total</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="item"
+                  v-for="item in invoice.items"
+                  v-bind:key="item.id"
+                >
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.vat_rate }}%</td>
+                  <td>{{ getItemTotal(item) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <div class="column is-12">
